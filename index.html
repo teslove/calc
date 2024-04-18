@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>공학용 계산기</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+
+#result {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="text-align: center;">공학용 계산기</h2>
+    <input type="text" id="input1" placeholder="첫 번째 숫자">
+    <input type="text" id="input2" placeholder="두 번째 숫자">
+    <input type="button" value="더하기" onclick="add()">
+    <input type="button" value="빼기" onclick="subtract()">
+    <input type="button" value="곱하기" onclick="multiply()">
+    <input type="button" value="나누기" onclick="divide()">
+    <div id="result"></div>
+</div>
+
+<script>
+function add() {
+    var num1 = parseFloat(document.getElementById('input1').value);
+    var num2 = parseFloat(document.getElementById('input2').value);
+    var result = num1 + num2;
+    document.getElementById('result').innerText = "결과: " + result;
+}
+
+function subtract() {
+    var num1 = parseFloat(document.getElementById('input1').value);
+    var num2 = parseFloat(document.getElementById('input2').value);
+    var result = num1 - num2;
+    document.getElementById('result').innerText = "결과: " + result;
+}
+
+function multiply() {
+    var num1 = parseFloat(document.getElementById('input1').value);
+    var num2 = parseFloat(document.getElementById('input2').value);
+    var result = num1 * num2;
+    document.getElementById('result').innerText = "결과: " + result;
+}
+
+function divide() {
+    var num1 = parseFloat(document.getElementById('input1').value);
+    var num2 = parseFloat(document.getElementById('input2').value);
+    if (num2 === 0) {
+        document.getElementById('result').innerText = "0으로 나눌 수 없습니다.";
+    } else {
+        var result = num1 / num2;
+        document.getElementById('result').innerText = "결과: " + result;
+    }
+}
+</script>
+
+</body>
+</html>
